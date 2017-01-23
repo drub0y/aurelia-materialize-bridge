@@ -26,7 +26,7 @@ export class MdCheckbox {
   attached() {
     this.attributeManager = new AttributeManager(this.checkbox);
     if (getBooleanFromAttributeValue(this.mdFilledIn)) {
-      this.attributeManager.addClasses('filled-in');
+      this.attributeManager.addClass('filled-in');
     }
     if (this.mdChecked === null) {
       this.checkbox.indeterminate = true;

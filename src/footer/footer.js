@@ -11,10 +11,10 @@ export class MdFooter {
   }
 
   bind() {
-    this.attributeManager.addClasses('page-footer');
+    this.attributeManager.addClass('page-footer');
   }
 
   unbind() {
-    this.attributeManager.removeClasses('page-footer');
+    this.attributeManager.removeClass('page-footer');
   }
 }

@@ -29,45 +29,54 @@ export class AttributeManager {
     });
   }
 
+  removeAttribute(attribute) {
+    if (this.element.getAttribute(attribute) && !!this.addedAttributes[attribute]) {
+      this.element.removeAttribute(attribute);
+      this.addedAttributes[attribute] = null;
+      delete this.addedAttributes[attribute];
+    }
+  }
+
   removeAttributes(attrs) {
     if (typeof attrs === 'string') {
-      attrs = [attrs];
+      this.removeAttribute(attrs);
+    } else {
+      attrs.forEach(c => this.removeAttribute(c));
     }
-    attrs.forEach(a => {
-      if (this.element.getAttribute(a) && !!this.addedAttributes[a]) {
-        this.element.removeAttribute(a);
-        this.addedAttributes[a] = null;
-        delete this.addedAttributes[a];
+  }
+
+  addClass(cssClass) {
+    let classListHasColor = this._colorClasses.filter(cc => this.element.classList.contains(cc)).length > 0;
+    if (this._colorClasses.indexOf(cssClass) > -1 && classListHasColor) {
+        //
+    } else {
+      if (!this.element.classList.contains(cssClass)) {
+        this.addedClasses.push(cssClass);
+        this.element.classList.add(cssClass);
       }
-    });
+    }
   }
 
   addClasses(classes) {
     if (typeof classes === 'string') {
-      classes = [classes];
+      this.addClass(classes);
+    } else {
+      classes.forEach(c => this.addClass(c));
     }
-    classes.forEach(c => {
-      let classListHasColor = this._colorClasses.filter(cc => this.element.classList.contains(cc)).length > 0;
-      if (this._colorClasses.indexOf(c) > -1 && classListHasColor) {
-        //
-      } else {
-        if (!this.element.classList.contains(c)) {
-          this.addedClasses.push(c);
-          this.element.classList.add(c);
-        }
-      }
-    });
+  }
+
+  removeClass(cssClass) {
+    if (this.element.classList.contains(cssClass) && this.addedClasses.indexOf(cssClass) > -1) {
+      this.element.classList.remove(cssClass);
+      this.addedClasses.splice(this.addedClasses.indexOf(cssClass), 1);
+    }
   }
 
   removeClasses(classes) {
     if (typeof classes === 'string') {
-      classes = [classes];
+      this.removeClass(classes);
+    } else {
+      classes.forEach(c => this.removeClass(c));
     }
-    classes.forEach(c => {
-      if (this.element.classList.contains(c) && this.addedClasses.indexOf(c) > -1) {
-        this.element.classList.remove(c);
-        this.addedClasses.splice(this.addedClasses.indexOf(c), 1);
-      }
-    });
   }
 }

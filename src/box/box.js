@@ -15,7 +15,7 @@ export class MdBox {
   }
 
   attached() {
-    this.attributeManager.addClasses('materialboxed');
+    this.attributeManager.addClass('materialboxed');
     if (this.caption) {
       this.attributeManager.addAttributes({ 'data-caption': this.caption });
     }
@@ -24,7 +24,7 @@ export class MdBox {
   }
 
   detached() {
-    this.attributeManager.removeAttributes('data-caption');
-    this.attributeManager.removeClasses('materialboxed');
+    this.attributeManager.removeAttribute('data-caption');
+    this.attributeManager.removeClass('materialboxed');
   }
 }

@@ -49,8 +49,8 @@ export class MdDropdown {
     this.handleActivateElement();
     this.contentAttributeManager = new AttributeManager(document.getElementById(this.activates));
 
-    this.attributeManager.addClasses('dropdown-button');
-    this.contentAttributeManager.addClasses('dropdown-content');
+    this.attributeManager.addClass('dropdown-button');
+    this.contentAttributeManager.addClass('dropdown-content');
     // this.attributeManager.addAttributes({ 'data-activates': this.activates });
 
     $(this.element).dropdown({
@@ -65,9 +65,9 @@ export class MdDropdown {
   }
 
   detached() {
-    this.attributeManager.removeAttributes('data-activates');
-    this.attributeManager.removeClasses('dropdown-button');
-    this.contentAttributeManager.removeClasses('dropdown-content');
+    this.attributeManager.removeAttribute('data-activates');
+    this.attributeManager.removeClass('dropdown-button');
+    this.contentAttributeManager.removeClass('dropdown-content');
   }
 
   handleActivateElement() {

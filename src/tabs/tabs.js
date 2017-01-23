@@ -20,7 +20,7 @@ export class MdTabs {
   }
 
   attached() {
-    this.attributeManager.addClasses('tabs');
+    this.attributeManager.addClass('tabs');
 
     let children = this.element.querySelectorAll('li');
     [].forEach.call(children, child => {
@@ -44,12 +44,12 @@ export class MdTabs {
   }
 
   detached() {
-    this.attributeManager.removeClasses('tabs');
+    this.attributeManager.removeClass('tabs');
 
     // no destroy handler in tabs
 
     this.tabAttributeManagers.forEach(setter => {
-      setter.removeClasses('tab');
+      setter.removeClass('tab');
     });
     this.tabAttributeManagers = [];
     let childAnchors = this.element.querySelectorAll('li a');
@@ -66,7 +66,7 @@ export class MdTabs {
         hrefs.push($(tab).attr('href'));
       });
       $(hrefs).each((i, tab) => {
-        if (this.selectedTab.index != i) {
+        if (this.selectedTab.index !== i) {
           $(tab).hide();
         }
       });
@@ -79,17 +79,17 @@ export class MdTabs {
 
   fixedChanged(newValue) {
     if (newValue) {
-      this.attributeManager.addClasses('tabs-fixed-width');
+      this.attributeManager.addClass('tabs-fixed-width');
     } else {
-      this.attributeManager.removeClasses('tabs-fixed-width');
+      this.attributeManager.removeClass('tabs-fixed-width');
     }
   }
 
   transparentChanged(newValue) {
     if (newValue) {
-      this.attributeManager.addClasses('tabs-transparent');
+      this.attributeManager.addClass('tabs-transparent');
     } else {
-      this.attributeManager.removeClasses('tabs-transparent');
+      this.attributeManager.removeClass('tabs-transparent');
     }
   }
 

@@ -48,18 +48,18 @@ export class MdButton {
 
   disabledChanged(newValue) {
     if (getBooleanFromAttributeValue(newValue)) {
-      this.attributeManager.addClasses('disabled');
+      this.attributeManager.addClass('disabled');
     } else {
-      this.attributeManager.removeClasses('disabled');
+      this.attributeManager.removeClass('disabled');
     }
   }
 
   flatChanged(newValue) {
     if (getBooleanFromAttributeValue(newValue)) {
       this.attributeManager.removeClasses(['btn', 'accent']);
-      this.attributeManager.addClasses('btn-flat');
+      this.attributeManager.addClass('btn-flat');
     } else {
-      this.attributeManager.removeClasses('btn-flat');
+      this.attributeManager.removeClass('btn-flat');
       this.attributeManager.addClasses(['btn', 'accent']);
     }
   }

@@ -27,6 +27,6 @@ export class MdCharCounter {
   }
 
   detached() {
-    this.attributeManager.removeAttributes(['length']);
+    this.attributeManager.removeAttribute('length');
   }
 }

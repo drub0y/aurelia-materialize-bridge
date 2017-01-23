@@ -17,7 +17,7 @@ export class MdModal {
   }
 
   attached() {
-    this.attributeManager.addClasses('modal');
+    this.attributeManager.addClass('modal');
     $(this.element).modal({
       complete: this.onComplete,
       dismissible: getBooleanFromAttributeValue(this.dismissible),
@@ -26,7 +26,7 @@ export class MdModal {
   }
 
   detached() {
-    this.attributeManager.removeClasses('modal');
+    this.attributeManager.removeClass('modal');
   }
 
   onComplete() {

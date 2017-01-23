@@ -16,7 +16,7 @@ export class MdModalTrigger {
   }
 
   attached() {
-    this.attributeManager.addClasses('modal-trigger');
+    this.attributeManager.addClass('modal-trigger');
     $(this.element).leanModal({
       complete: this.onComplete,
       dismissible: getBooleanFromAttributeValue(this.dismissible)
@@ -24,7 +24,7 @@ export class MdModalTrigger {
   }
 
   detached() {
-    this.attributeManager.removeClasses('modal-trigger');
+    this.attributeManager.removeClass('modal-trigger');
   }
 
   onComplete() {

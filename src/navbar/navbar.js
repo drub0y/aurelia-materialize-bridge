@@ -23,19 +23,19 @@ export class MdNavbar {
     this.fixedAttributeManager = new AttributeManager(this.fixedAnchor);
     this.navAttributeManager = new AttributeManager(this.nav);
     if (getBooleanFromAttributeValue(this.mdFixed)) {
-      this.fixedAttributeManager.addClasses('navbar-fixed');
+      this.fixedAttributeManager.addClass('navbar-fixed');
     }
     if (getBooleanFromAttributeValue(this.mdAutoHeight)) {
-      this.navAttributeManager.addClasses('md-auto-height');
+      this.navAttributeManager.addClass('md-auto-height');
     }
   }
 
   detached() {
     if (getBooleanFromAttributeValue(this.mdFixed)) {
-      this.fixedAttributeManager.removeClasses('navbar-fixed');
+      this.fixedAttributeManager.removeClass('navbar-fixed');
     }
     if (getBooleanFromAttributeValue(this.mdAutoHeight)) {
-      this.navAttributeManager.addClasses('md-auto-height');
+      this.navAttributeManager.addClass('md-auto-height');
     }
   }
 }

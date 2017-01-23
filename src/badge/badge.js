@@ -32,14 +32,14 @@ export class MdBadge {
 
   detached() {
     this.attributeManager.removeClasses(['badge', 'new']);
-    this.attributeManager.removeAttributes(['data-badge-caption']);
+    this.attributeManager.removeAttribute('data-badge-caption');
   }
 
   newChanged(newValue) {
     if (getBooleanFromAttributeValue(newValue)) {
-      this.attributeManager.addClasses('new');
+      this.attributeManager.addClass('new');
     } else {
-      this.attributeManager.removeClasses('new');
+      this.attributeManager.removeClass('new');
     }
   }
 
@@ -47,7 +47,7 @@ export class MdBadge {
     if (newValue !== null) {
       this.attributeManager.addAttributes({ 'data-badge-caption': newValue });
     } else {
-      this.attributeManager.removeAttributes(['data-badge-caption']);
+      this.attributeManager.removeAttribute('data-badge-caption');
     }
   }
 }

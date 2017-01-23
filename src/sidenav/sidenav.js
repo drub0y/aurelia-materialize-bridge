@@ -28,10 +28,10 @@ export class MdSidenav {
   attached() {
     this.attributeManager = new AttributeManager(this.sidenav);
     if (getBooleanFromAttributeValue(this.mdFixed)) {
-      this.attributeManager.addClasses('fixed');
+      this.attributeManager.addClass('fixed');
       if (this.mdEdge === 'right') {
         // see: https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/issues/53
-        this.attributeManager.addClasses('right-aligned');
+        this.attributeManager.addClass('right-aligned');
       }
     }
 
@@ -45,9 +45,9 @@ export class MdSidenav {
   mdFixedChanged(newValue) {
     if (this.attributeManager) {
       if (getBooleanFromAttributeValue(newValue)) {
-        this.attributeManager.addClasses('fixed');
+        this.attributeManager.addClass('fixed');
       } else {
-        this.attributeManager.removeClasses('fixed');
+        this.attributeManager.removeClass('fixed');
       }
     }
   }

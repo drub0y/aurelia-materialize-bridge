@@ -26,7 +26,7 @@ export class MdRadio {
   attached() {
     this.attributeManager = new AttributeManager(this.radio);
     if (getBooleanFromAttributeValue(this.mdGap)) {
-      this.attributeManager.addClasses('with-gap');
+      this.attributeManager.addClass('with-gap');
     }
     if (getBooleanFromAttributeValue(this.mdDisabled)) {
       this.radio.disabled = true;

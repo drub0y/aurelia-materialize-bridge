@@ -11,10 +11,10 @@ export class MdPrefix {
   }
 
   bind() {
-    this.attributeManager.addClasses('prefix');
+    this.attributeManager.addClass('prefix');
   }
 
   unbind() {
-    this.attributeManager.removeClasses('prefix');
+    this.attributeManager.removeClass('prefix');
   }
 }
